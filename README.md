@@ -42,7 +42,7 @@ $ yarn docs:dev
 
 ### And coding style tests
 
-All documents should respect the Markdown language (install a linter in your studio), the following [Vuepress Markdown extensions](https://vuepress.vuejs.org/guide/markdown.html) can be used.
+All documents should respect the Markdown language (install a linter in your studio), the following [Vuepress Markdown extensions](https://vuepress.vuejs.org/guide/markdown.html) and [Vuepress enhanced Examples](http://vuepress-enhanced-examples.surge.sh/#overview) can be used.
 
 ## Built With
 
