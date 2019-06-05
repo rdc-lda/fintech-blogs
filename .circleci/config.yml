@@ -6,8 +6,6 @@ jobs:
     docker:
       - image: node:latest
     working_directory: ~/rdc-blogs
-    environment:
-      VUEPRESS_BUILD_DIR: dist
     steps:
       # Checkout the repository
       - checkout
@@ -21,7 +19,6 @@ jobs:
       - run: 
           name: Build the Vuepress static content
           command: vuepress build docs
-          # command: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
@@ -30,24 +27,24 @@ jobs:
           paths:
              - dist/
 
-  # # Validate the generated HTML
-  # validate:
-  #   docker:
-  #     - image: cibuilds/hugo:latest
-  #   working_directory: ~/hugo
-  #   environment:
-  #     HUGO_BUILD_DIR: public
-  #   steps:
-  #     - attach_workspace:
-  #         # Must be absolute path or relative path from working_directory
-  #         at: ~/hugo
+  # Validate the generated HTML
+  validate:
+    docker:
+      - image: rdclda/ci-htmlproofer:latest
+    working_directory: ~/rdc-blogs
+    environment:
+      VUEPRESS_BUILD_DIR: dist
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: ~/rdc-blogs
 
-  #     # Test the generated HTML
-  #     - run:
-  #         name: Test our generated HTML files
-  #         command: |
-  #           htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
-  #           --empty-alt-ignore --disable-external
+      # Test the generated HTML
+      - run:
+          name: Test our generated HTML files
+          command: |
+            htmlproofer $VUEPRESS_BUILD_DIR --allow-hash-href --check-html \
+            --empty-alt-ignore --disable-external
 
 
   # Publish the generated HTML to the RDC Website
@@ -90,9 +87,9 @@ workflows:
   build_and_publish:
     jobs:
       - build
-      # - validate:
-      #     requires:
-      #       - build
+      - validate:
+          requires:
+            - build
       # - publish:
       #     requires:
       #       - validate
