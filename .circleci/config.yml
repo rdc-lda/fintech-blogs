@@ -28,7 +28,7 @@ jobs:
           root: ~/rdc-blogs
           # Must be relative path from root
           paths:
-             - $VUEPRESS_BUILD_DIR/
+             - dist/
 
   # # Validate the generated HTML
   # validate:
