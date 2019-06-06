@@ -44,8 +44,8 @@ jobs:
           #   --empty-alt-ignore --disable-external
 
 
-  # Publish the generated HTML to the RDC Website
-  publish_cloudfoundry:
+  # Publish the generated HTML to the RDC Website to PCF
+  publish_pcf:
     docker:
       - image: rdclda/ci-cloudfoundry:latest
     working_directory: ~/rdc-blogs
@@ -70,7 +70,7 @@ workflows:
       - validate:
           requires:
             - build
-      - publish_cloudfoundry:
+      - publish_pcf:
           requires:
             - validate
           filters:
