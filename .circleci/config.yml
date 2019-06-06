@@ -59,7 +59,7 @@ jobs:
           name: Upload content to Pivotal CloudFoundry
           command: |
             cf login -a $CF_API_ENDPOINT -o $CF_ORG -u $CF_USER -p $CF_PASS -s $CF_SPACE && \
-            cf push rdc-blogs -n rdc-blogs -s cflinuxfs3 -p ./dist
+            cf push rdc-blogs -b staticfile_buildpack -n rdc-blogs -s cflinuxfs3 -p ./dist
 
 # Glue the jobs together
 workflows:
