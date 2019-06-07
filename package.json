@@ -2,5 +2,18 @@
     "scripts": {
       "docs:dev": "vuepress dev docs",
       "docs:build": "vuepress build docs"
+    },
+    "author": "Robin Huiser <robin@rdc.pt>",
+    "devDependencies": {
+      "@vuepress/plugin-google-analytics": "^1.0.0-alpha.47",
+      "vuepress": "^1.0.0-alpha.47"
+    },
+    "dependencies": {
+      "markdown-it-meta": "^0.0.1",
+      "package": "^1.0.1",
+      "vue": "^2.3.0",
+      "vue-tabs-component": "^1.5.0",
+      "vuepress-intercom": "^1.0.3",
+      "vuepress-plugin-tabs": "^0.2.2"
     }
   }

@@ -2,7 +2,7 @@
 home: true 
 heroImage: /images/rdc-fintech-splash.png
 actionText: Let us Explore →
-actionLink: /articles/
+actionLink: /guides/
 features:
 - title: Technology Guides 
   details: Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sed ex non nulla volutpat ornare sit amet ut ante. Phasellus arcu nisi, tristique et odio in, tristique maximus mi.
